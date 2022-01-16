@@ -1,0 +1,87 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlDBName": {
+            "type": "string",
+            "defaultValue":  "cyrpto-trakcer-dev-sdb/CryptoTracker",
+            "metadata": {
+                "description": "The name of the SQL Database."
+            }
+        },
+        "sqlServerName": {
+            "type": "string",
+            "defaultValue":"cyrpto-trakcer-dev-sdb",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        "userSqlServer": {
+            "type": "string",
+            "defaultValue": "jesus",
+            "metadata": {
+                "description": "The administrator username of the SQL logical server."
+            }
+        },
+        "passwordSqlServer": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The administrator password of the SQL logical server."
+            }
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+         {
+            "name": "[parameters('sqlServerName')]",
+            "type": "Microsoft.Sql/servers",
+            "apiVersion": "2021-02-01-preview",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "[parameters('sqlServerName')]"
+            },
+            "properties": {
+                "administratorLogin": "[parameters('userSqlServer')]",
+                "administratorLoginPassword": "[parameters('passwordSqlServer')]"
+            },
+            "resources": [
+                {
+                    "type": "firewallRules",
+                    "apiVersion": "2021-02-01-preview",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', 'cyrpto-trakcer-dev-sdb')]"
+                    ],
+                    "location": "[resourceGroup().location]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "0.0.0.0"
+                    }
+                }
+
+            ]
+        },
+        {
+            "name": "[parameters('sqlDBName')]",
+            "type": "Microsoft.Sql/servers/databases",
+            "apiVersion": "2021-02-01-preview",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "displayName": "[parameters('sqlDBName')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', concat(parameters('sqlServerName')))]"
+            ],
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic",
+                "maxSizeBytes": "1073741824",
+                "requestedServiceObjectiveName": "Basic"
+            }
+        }
+
+       
+    ],
+    "outputs": {}
+}
