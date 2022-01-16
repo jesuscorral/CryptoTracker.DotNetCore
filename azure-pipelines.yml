@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2022'
 
 variables:
   solution: '**/*.sln'
@@ -20,6 +20,11 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '6.0.x'
+
+- task: CmdLine@2
+  displayName: List the current .NET SDKs
+  inputs:
+    script: 'dotnet --list-sdks'
     
 - task: NuGetToolInstaller@1
 
