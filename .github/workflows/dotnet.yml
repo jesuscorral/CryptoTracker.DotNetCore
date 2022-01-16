@@ -21,6 +21,5 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./CryptoTracker/CryptoTracker.API.WebAPI.sln
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build ./CryptoTracker/CryptoTracker.API.WebAPI.sln --no-restore
+
