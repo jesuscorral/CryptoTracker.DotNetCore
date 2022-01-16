@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoTracker.API.Host", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{85524861-4BCB-4010-8DA6-C76FA3DA85AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoTracker.API.WebAPI", "src\CryptoTracker.API.WebAPI\CryptoTracker.API.WebAPI.csproj", "{2E71BDAC-5DC7-49E0-8621-80B9FA2CD801}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoTracker.API.WebAPI", "src\CryptoTracker.API.WebAPI\CryptoTracker.API.WebAPI.csproj", "{2E71BDAC-5DC7-49E0-8621-80B9FA2CD801}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D9DC1674-1EEF-4661-BA6D-5C2A57917977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoTracker.API.Tests", "tests\CryptoTracker.API.Tests\CryptoTracker.API.Tests.csproj", "{DCFB99A0-18FD-4B85-8497-C5295F4F98E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{2E71BDAC-5DC7-49E0-8621-80B9FA2CD801}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E71BDAC-5DC7-49E0-8621-80B9FA2CD801}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E71BDAC-5DC7-49E0-8621-80B9FA2CD801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCFB99A0-18FD-4B85-8497-C5295F4F98E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCFB99A0-18FD-4B85-8497-C5295F4F98E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCFB99A0-18FD-4B85-8497-C5295F4F98E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCFB99A0-18FD-4B85-8497-C5295F4F98E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{56834965-761C-4959-89E2-1C7FF149BAF5} = {85524861-4BCB-4010-8DA6-C76FA3DA85AD}
 		{2E71BDAC-5DC7-49E0-8621-80B9FA2CD801} = {85524861-4BCB-4010-8DA6-C76FA3DA85AD}
+		{DCFB99A0-18FD-4B85-8497-C5295F4F98E3} = {D9DC1674-1EEF-4661-BA6D-5C2A57917977}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7EDA7330-5D4D-4DC8-8C0A-41FD33A3F59B}
